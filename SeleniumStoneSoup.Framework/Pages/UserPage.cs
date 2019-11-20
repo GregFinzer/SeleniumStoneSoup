@@ -19,7 +19,7 @@ namespace SeleniumStoneSoup.Demo.Framework.Pages
 
         public void FillForm()
         {
-            TitleDropDown.SelectDropdown("Mrs.");
+            TitleDropDown.SelectDropdownByText("Mrs.");
             FirstNameTextBox.SetText("Jennifer");
             LastNameTextBox.SetText("Lopez");
 

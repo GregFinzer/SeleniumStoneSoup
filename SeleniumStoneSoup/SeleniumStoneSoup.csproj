@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="BaseStoneSoupPage.cs" />
     <Compile Include="BaseStoneSoupTest.cs" />
+    <Compile Include="IWebDriverExtensions.cs" />
     <Compile Include="IWebElementExtensions.cs" />
     <Compile Include="Setup\LocalDriverConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
