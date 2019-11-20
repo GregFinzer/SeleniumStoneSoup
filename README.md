@@ -1,0 +1,2 @@
+# SeleniumStoneSoup
+Selenium Starter Framework
