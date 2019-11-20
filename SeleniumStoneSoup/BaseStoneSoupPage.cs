@@ -7,9 +7,9 @@ using OpenQA.Selenium.Remote;
 
 namespace SeleniumStoneSoup
 {
-    public abstract class BasePage
+    public abstract class BaseStoneSoupPage
     {
-        protected BasePage(RemoteWebDriver driver)
+        protected BaseStoneSoupPage(RemoteWebDriver driver)
         {
             Driver = driver;
         }

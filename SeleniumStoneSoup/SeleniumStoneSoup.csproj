@@ -54,8 +54,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePage.cs" />
-    <Compile Include="BaseTest.cs" />
+    <Compile Include="BaseStoneSoupPage.cs" />
+    <Compile Include="BaseStoneSoupTest.cs" />
     <Compile Include="IWebElementExtensions.cs" />
     <Compile Include="Setup\LocalDriverConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

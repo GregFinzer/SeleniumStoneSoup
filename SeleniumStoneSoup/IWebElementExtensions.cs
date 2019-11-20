@@ -6,6 +6,12 @@ namespace SeleniumStoneSoup
 {
     public static class IWebElementExtensions
     {
+        public static void SetText(this IWebElement element, string text)
+        {
+            element.Clear();
+            element.SendKeys(text);
+        }
+
         public static string GetText(IWebElement element)
         {
             return element.GetAttribute("value");
@@ -19,11 +25,6 @@ namespace SeleniumStoneSoup
                 return string.Empty;
 
             return selectedOptions.First().Text;
-        }
-
-        public static void EnterText(this IWebElement element, string value)
-        {
-            element.SendKeys(value);
         }
 
         public static void SelectDropdown(this IWebElement element, string value)

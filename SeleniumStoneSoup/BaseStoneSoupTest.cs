@@ -13,9 +13,9 @@ using SeleniumStoneSoup.Setup;
 namespace SeleniumStoneSoup
 {
     [TestFixture]
-    public abstract class BaseTest
+    public abstract class BaseStoneSoupTest
     {
-        public IWebDriver Driver { get; set; }
+        public RemoteWebDriver Driver { get; set; }
 
         [OneTimeSetUp]
         public virtual void FixtureSetup()
@@ -39,8 +39,8 @@ namespace SeleniumStoneSoup
         {
             if (Driver != null)
             {
-                Driver.Quit();
                 Driver.Close();
+                Driver.Quit();
             }
         }
     }

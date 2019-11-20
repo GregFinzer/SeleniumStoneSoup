@@ -1,10 +1,11 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 
 namespace SeleniumStoneSoup.Setup
 {
     public class TestDriverFactory
     {
-        public IWebDriver CreateDriver()
+        public RemoteWebDriver CreateDriver()
         {
             //TODO:  Remote later
             ////If remote is true, then create a RemoteDriverConfig and pass it to the factory
@@ -20,7 +21,7 @@ namespace SeleniumStoneSoup.Setup
             //}
 
             //Else (false) create a LocalDriverConfig and pass this to the factory
-            return new WebDriverFactory().Create(
+            return (RemoteWebDriver) new WebDriverFactory().Create(
                 new LocalDriverConfiguration(
                     TestConfiguration.Browser));
         }
