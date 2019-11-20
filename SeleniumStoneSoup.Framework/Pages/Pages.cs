@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium.Remote;
 
-namespace SeleniumStoneSoup.Framework.Pages
+namespace SeleniumStoneSoup.Demo.Framework.Pages
 {
     public class Pages
     {

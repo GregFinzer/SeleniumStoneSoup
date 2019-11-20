@@ -1,15 +1,15 @@
 ﻿using NUnit.Framework;
 
-namespace SeleniumStoneSoup.Framework
+namespace SeleniumStoneSoup.Demo.Framework
 {
     public class BaseTest : BaseStoneSoupTest
     {
-        public Pages.Pages Pages { get; set; }
+        public Demo.Framework.Pages.Pages Pages { get; set; }
 
         [SetUp]
         public void Initialize()
         {
-            Pages = new Pages.Pages(Driver);
+            Pages = new Demo.Framework.Pages.Pages(Driver);
         }
     }
 }

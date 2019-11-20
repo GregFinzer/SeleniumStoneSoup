@@ -63,6 +63,7 @@
     <Compile Include="Setup\TestConfiguration.cs" />
     <Compile Include="Setup\TestDriverFactory.cs" />
     <Compile Include="Setup\WebDriverFactory.cs" />
+    <Compile Include="StringUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

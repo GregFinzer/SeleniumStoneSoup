@@ -55,9 +55,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SeleniumStoneSoup.Framework\SeleniumStoneSoup.Framework.csproj">
+    <ProjectReference Include="..\SeleniumStoneSoup.Framework\SeleniumStoneSoup.Demo.Framework.csproj">
       <Project>{030eb840-ade4-4f48-a75a-389fad8c7bfc}</Project>
-      <Name>SeleniumStoneSoup.Framework</Name>
+      <Name>SeleniumStoneSoup.Demo.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="..\SeleniumStoneSoup\SeleniumStoneSoup.csproj">
       <Project>{03ed18ca-3b8d-4cdc-a64c-a2ef87561e1d}</Project>

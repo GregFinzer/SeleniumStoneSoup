@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumStoneSoup.Framework", "SeleniumStoneSoup.Framework\SeleniumStoneSoup.Framework.csproj", "{030EB840-ADE4-4F48-A75A-389FAD8C7BFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumStoneSoup.Demo.Framework", "SeleniumStoneSoup.Framework\SeleniumStoneSoup.Demo.Framework.csproj", "{030EB840-ADE4-4F48-A75A-389FAD8C7BFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumStoneSoup", "SeleniumStoneSoup\SeleniumStoneSoup.csproj", "{03ED18CA-3B8D-4CDC-A64C-A2EF87561E1D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumStoneSoup.Demo.Tests", "SeleniumStoneSoup.Demo.Tests\SeleniumStoneSoup.Demo.Tests.csproj", "{248B20CF-8A19-44C0-AE0B-5A74D3D7A30F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumStoneSoup.Demo", "SeleniumStoneSoup.Demo\SeleniumStoneSoup.Demo.csproj", "{472034EA-6EC2-47BA-A086-8BC847B99AF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{248B20CF-8A19-44C0-AE0B-5A74D3D7A30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{248B20CF-8A19-44C0-AE0B-5A74D3D7A30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{248B20CF-8A19-44C0-AE0B-5A74D3D7A30F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{472034EA-6EC2-47BA-A086-8BC847B99AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{472034EA-6EC2-47BA-A086-8BC847B99AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{472034EA-6EC2-47BA-A086-8BC847B99AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{472034EA-6EC2-47BA-A086-8BC847B99AF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
