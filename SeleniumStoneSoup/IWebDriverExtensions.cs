@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Diagnostics.Contracts;
-
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumStoneSoup
 {
@@ -83,9 +85,24 @@ namespace SeleniumStoneSoup
             return ((ITakesScreenshot)driver).GetScreenshot();
         }
 
-        public static void SaveScreenshot(this IWebDriver driver, string path)
+        public static void SaveScreenshot(this IWebDriver driver, string filePath)
         {
-            GetScreenshot(driver).SaveAsFile(path, ScreenshotImageFormat.Jpeg);
+            string directory = Path.GetDirectoryName(filePath);
+
+            if (directory != null)
+            {
+                if (Directory.Exists(directory) == false)
+                {
+                    Directory.CreateDirectory(directory);
+                }
+            }
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+
+            GetScreenshot(driver).SaveAsFile(filePath, ScreenshotImageFormat.Jpeg);
         }
 
         public static void SwitchToIFrame(this IWebDriver driver, IWebElement iFrame)
@@ -125,6 +142,61 @@ namespace SeleniumStoneSoup
             var javaScriptExecutor = (IJavaScriptExecutor)driver;
 
             return javaScriptExecutor.ExecuteScript(javaScript, args);
+        }
+
+        public static void WaitUntilElementIsVisible(this IWebDriver I, By selector)
+        {
+            I.Wait().Until(d => d.FindElements(selector).Any());
+
+            I.Wait().Until(d => d.FindElements(selector).ElementIsAttached());
+        }
+
+
+        public static WebDriverWait Wait(this IWebDriver driver, int timeout = 60)
+        {
+            return new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
+        }
+
+        private static bool ElementIsAttached(this ICollection<IWebElement> elements)
+        {
+            try
+            {
+                elements.Any(d => d.Displayed);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static string GetBodyText(this IWebDriver driver)
+        {
+            return driver.FindElement(By.TagName("body")).Text;
+        }
+
+        public static ReadOnlyCollection<IWebElement> GetAllElements(this IWebDriver driver)
+        {
+            return driver.FindElements(By.CssSelector("*"));
+        }
+
+        public static ReadOnlyCollection<IWebElement> GetElements(
+            this IWebDriver element,
+            By by)
+        {
+            return element.FindElements(by);
+        }
+
+        public static ReadOnlyCollection<IWebElement> GetAllInputElements(
+            this IWebDriver element,
+            By by)
+        {
+            return element.FindElements(By.TagName("input"));
+        }
+
+        public static IWebElement GetForm(IWebDriver element)
+        {
+            return element.FindElements(By.TagName("form")).First();
         }
     }
 }

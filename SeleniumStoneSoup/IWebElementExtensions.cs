@@ -105,9 +105,43 @@ namespace SeleniumStoneSoup
             return webElement.GetAttribute("innerHTML");
         }
 
+        public static string InnerText(this IWebElement element)
+        {
+            return element.GetAttribute("innerText");
+        }
+
         public static string OuterHtml(this IWebElement webElement)
         {
             return webElement.GetAttribute("outerHTML");
+        }
+
+        public static void PressEnter(
+            this IWebElement element)
+        {
+            element.SendKeys(Keys.Return);
+        }
+
+        public static void Clear(this IWebElement element)
+        {
+            if (element.TagName == "input" ||
+                element.TagName == "textarea")
+            {
+                element.Clear();
+            }
+            else
+            {
+                element.SendKeys(Keys.LeftControl + "a");
+                element.SendKeys(Keys.Delete);
+            }
+        }
+
+        public static void SetInputFocus(this IWebElement element)
+        {
+            if (element.TagName == "input" ||
+                element.TagName == "textarea")
+            {
+                element.SendKeys(string.Empty);
+            }
         }
     }
 }
