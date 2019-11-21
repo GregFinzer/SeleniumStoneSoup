@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="BaseStoneSoupPage.cs" />
     <Compile Include="BaseStoneSoupTest.cs" />
+    <Compile Include="EnumHelper.cs" />
     <Compile Include="IWebDriverExtensions.cs" />
     <Compile Include="IWebElementExtensions.cs" />
     <Compile Include="Setup\LocalDriverConfiguration.cs" />
@@ -65,6 +66,9 @@
     <Compile Include="Setup\TestDriverFactory.cs" />
     <Compile Include="Setup\WebDriverFactory.cs" />
     <Compile Include="StringUtil.cs" />
+    <Compile Include="TagAttributes.cs" />
+    <Compile Include="TagNames.cs" />
+    <Compile Include="WaitHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
