@@ -9,14 +9,19 @@ namespace SeleniumStoneSoup.Demo.Tests
         public void CanLogin()
         {
             Pages.Login.GoTo();
+            Pages.Login.IsOnPage();
+            Pages.Login.HasExpectedTitle();
             Pages.Login.LoginValidUser();
+            Pages.Order.IsOnPage();
         }
 
         [Test]
-        public void CanFillInFormOnUserPage()
+        public void CanOrder()
         {
-            Pages.User.GoTo();
-            Pages.User.FillForm();
+            Pages.Login.GoTo();
+            Pages.Login.LoginValidUser();
+            Pages.Order.OrderLoadedPotatoSoup();
+            Pages.OrderConfirmation.IsOnPage();
         }
     }
 }

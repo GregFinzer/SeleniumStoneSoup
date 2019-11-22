@@ -9,21 +9,16 @@ namespace SeleniumStoneSoup.Demo.Framework.Pages
         {
         }
 
-        public IWebElement UserNameTextbox => Driver.FindElementByName("UserName");
-        public IWebElement PasswordTextbox => Driver.FindElementByName("Password");
-        public IWebElement LoginButton => Driver.FindElementByName("Login");
+        public IWebElement UserNameTextbox => Driver.FindElementById("userName");
+        public IWebElement PasswordTextbox => Driver.FindElementById("password");
+        public IWebElement LoginButton => Driver.FindElementByName("login");
 
-        public override string Route
-        {
-            get
-            {
-                return "login.html";
-            }
-        }
+        public override string Route => "Login.html";
+        public override string Title => "Login";
 
         public void LoginValidUser()
         {
-            UserNameTextbox.SetText("jdoe");
+            UserNameTextbox.SetText("bradgillis@bradgillis.com");
             PasswordTextbox.SetText("secret");
             LoginButton.Submit();
         }

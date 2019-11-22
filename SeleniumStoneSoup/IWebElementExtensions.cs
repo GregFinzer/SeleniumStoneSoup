@@ -22,6 +22,7 @@ namespace SeleniumStoneSoup
             element.SendKeys(text);
         }
 
+
         public static string GetText(IWebElement element)
         {
             return element.GetAttribute("value");

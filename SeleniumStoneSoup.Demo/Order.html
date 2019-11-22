@@ -18,7 +18,7 @@
             crossorigin="anonymous"></script>
     <link href="CSS/styles.css" rel="stylesheet" />
     <script src="JavaScript/script.js"></script>
-    <title>Login</title>
+    <title>Order Confirmation</title>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 
         <div class="row">
             <div class="col-lg-6 col-md-9 col-sm-12">
-                <form action="confirm.html" enctype="text/plain" method="get" name="order" target="_self">
+                <form action="confirmed.html" enctype="text/plain" method="get" name="order" target="_self">
                     <div class="card">
                         <div class="card-header">
                             Order
@@ -137,7 +137,7 @@
                     </div>
                     <p>
                         <input type="hidden" id="token" value="9f915e89-1daa-4c12-959d-1d870da1e869" />
-                        <button name="submitOrder" type="submit" class="btn btn-primary">Order Now</button>
+                        <button id="submitOrder" type="submit" class="btn btn-primary">Order Now</button>
                         <button type="reset" id="clear" class="btn btn-secondary">Clear</button>
                     </p>
                 </form>

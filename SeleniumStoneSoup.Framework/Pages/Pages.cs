@@ -12,6 +12,7 @@ namespace SeleniumStoneSoup.Demo.Framework.Pages
         }
 
         public LoginPage Login => new LoginPage(Driver);
-        public UserPage User => new UserPage(Driver);
+        public OrderPage Order => new OrderPage(Driver);
+        public OrderConfirmationPage OrderConfirmation => new OrderConfirmationPage(Driver);
     }
 }

@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
+
+namespace SeleniumStoneSoup.Demo.Framework.Pages
+{
+    public class OrderPage : BaseStoneSoupPage
+    {
+        public OrderPage(RemoteWebDriver driver) : base(driver)
+        {
+        }
+
+        public IWebElement MenuItem => Driver.FindElementById("menuItem");
+        public IWebElement Quantity => Driver.FindElementById("quantity");
+        public IWebElement SpicyLevel => Driver.FindElementById("spicyLevel");
+        public IWebElement Birthday => Driver.FindElementById("birthday");
+        public IWebElement FavoriteColor => Driver.FindElementById("favoriteColor");
+        public IWebElement FacebookPage => Driver.FindElementById("facebookPage");
+        public IWebElement SexMale => Driver.GetRadioByNameAndValue("sex", "male");
+        public IWebElement SexFemale => Driver.GetRadioByNameAndValue("sex", "female");
+        public IWebElement Agree => Driver.FindElementById("agree");
+        public IWebElement OrderTime => Driver.FindElementById("orderTime");
+        public IWebElement Phone => Driver.FindElementById("phone");
+        public IWebElement Email => Driver.FindElementById("email");
+        public IWebElement Address => Driver.FindElementById("address");
+        public IWebElement ZipCode => Driver.FindElementById("zipCode");
+        public IWebElement DriverNotes => Driver.FindElementById("driverNotes");
+        public IWebElement SubmitOrder => Driver.FindElementById("submitOrder");
+
+        public override string Route => "Order.html";
+        public override string Title => "Order";
+
+        public void OrderLoadedPotatoSoup()
+        {
+            FillInOrderSection();
+            FillInBirthdaySection();
+            FillInDeliveryInformation();
+            SubmitOrder.Submit();
+        }
+
+        private void FillInDeliveryInformation()
+        {
+            OrderTime.SetText("1230PM");
+            Phone.SetText("3108675309");
+            Email.SetText("bradgillis@bradgillis.com");
+            Address.SetText("4 Sentimental Street");
+            ZipCode.SetText("90210");
+            DriverNotes.SetText("The password for the gated community is 5309");
+        }
+
+        private void FillInBirthdaySection()
+        {
+            Birthday.SetText("06/15/1957");
+            Driver.SetValue(FavoriteColor, "#8000ff");
+            FacebookPage.SetText("https://www.facebook.com/brad.gillis.125");
+            SexMale.Click();
+            Agree.Click();
+        }
+
+        private void FillInOrderSection()
+        {
+            MenuItem.SelectDropdownByText("We will Rock you Loaded Potato Cheese Soup");
+            Quantity.SetText("2");
+            SpicyLevel.SetText("5");
+        }
+    }
+}

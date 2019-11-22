@@ -55,9 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
+    <Compile Include="Pages\OrderConfirmationPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\OrderPage.cs" />
     <Compile Include="Pages\Pages.cs" />
-    <Compile Include="Pages\UserPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

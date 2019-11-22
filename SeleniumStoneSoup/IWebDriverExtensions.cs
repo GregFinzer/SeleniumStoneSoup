@@ -45,7 +45,7 @@ namespace SeleniumStoneSoup
 
         public static bool TitleContains(this IWebDriver driver, string text)
         {
-            return driver?.Title.Contains(text) ?? false;
+            return driver?.Title.ToLower().Contains(text.ToLower()) ?? false;
         }
 
 
@@ -151,6 +151,10 @@ namespace SeleniumStoneSoup
             I.Wait().Until(d => d.FindElements(selector).ElementIsAttached());
         }
 
+        public static void SetValue(this IWebDriver driver, IWebElement element, string value)
+        {
+            ExecuteJavaScript(driver,$"arguments[0].setAttribute('value', '{value}')", element);
+        }
 
         public static WebDriverWait Wait(this IWebDriver driver, int timeout = 60)
         {
