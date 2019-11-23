@@ -21,9 +21,12 @@ namespace SeleniumStoneSoup.Setup
             //}
 
             //Else (false) create a LocalDriverConfig and pass this to the factory
-            return (RemoteWebDriver) new WebDriverFactory().Create(
+            RemoteWebDriver driver = (RemoteWebDriver) new WebDriverFactory().Create(
                 new LocalDriverConfiguration(
                     TestConfiguration.Browser));
+
+            driver.Manage().Window.Maximize();
+            return driver;
         }
 
     }
