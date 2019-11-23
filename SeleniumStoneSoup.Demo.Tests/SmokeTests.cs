@@ -1,4 +1,7 @@
-﻿using NUnit.Framework;
+﻿using System.IO;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using NUnit.Framework;
 using SeleniumStoneSoup.Demo.Framework;
 
 namespace SeleniumStoneSoup.Demo.Tests
@@ -23,5 +26,6 @@ namespace SeleniumStoneSoup.Demo.Tests
             Pages.Order.OrderLoadedPotatoSoup();
             Pages.OrderConfirmation.IsOnPage();
         }
+
     }
 }

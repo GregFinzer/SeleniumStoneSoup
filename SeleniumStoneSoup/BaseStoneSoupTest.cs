@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AventStack.ExtentReports;
+using MongoDB.Driver;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -17,24 +19,34 @@ namespace SeleniumStoneSoup
     [TestFixture]
     public abstract class BaseStoneSoupTest
     {
-        public RemoteWebDriver Driver { get; set; }
+        public RemoteWebDriver Driver => UiTestContext.Driver;
 
-        [OneTimeSetUp]
-        public virtual void FixtureSetup()
+        public ExtentTest ExtentTest { get; set; }
+
+
+        [SetUp]
+        public void BaseInitialize()
         {
-            Driver = new TestDriverFactory().CreateDriver();
+            ExtentTest = UiTestContext.Extent.CreateTest(TestContext.CurrentContext.Test.ClassName + "." +
+                                                         TestContext.CurrentContext.Test.MethodName);
         }
 
         [TearDown]
         public virtual void TestCleanup()
         {
+            TakeScreenShot();
+
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
-                TakeScreenShot();
+                string message = TestContext.CurrentContext.Result.Message + Environment.NewLine
+                                                                           + TestContext.CurrentContext.Result
+                                                                               .StackTrace;
+
+                ExtentTest.Fail(message).AddScreenCaptureFromPath(GetScreenShotPath());
             }
             else
             {
-                DeleteScreenShot();
+                ExtentTest.Pass("ScreenShot").AddScreenCaptureFromPath(GetScreenShotPath());
             }
         }
 
@@ -65,14 +77,14 @@ namespace SeleniumStoneSoup
                 $"{screenShotName}.jpg");
         }
 
-        [OneTimeTearDown]
-        public virtual void FixtureCleanup()
-        {
-            if (Driver != null)
-            {
-                Driver.Close();
-                Driver.Quit();
-            }
-        }
+        //[OneTimeTearDown]
+        //public virtual void FixtureCleanup()
+        //{
+        //    if (Driver != null)
+        //    {
+        //        Driver.Close();
+        //        Driver.Quit();
+        //    }
+        //}
     }
 }

@@ -30,5 +30,25 @@ namespace SeleniumStoneSoup
 
             return path + separator;
         }
+
+        /// <summary>
+        /// Extract Filename from a path
+        /// </summary>
+        /// <param name="fullPath">A fully qualified path ending in a filename</param>
+        /// <returns>The extracted file name</returns>
+        public static string ExtractFileName(string fullPath)
+        {
+            return System.IO.Path.GetFileName(fullPath);
+        }
+
+        /// <summary>
+        /// Check to see if a file exists
+        /// </summary>
+        /// <param name="sPath">The file path</param>
+        /// <returns>True if it exists</returns>
+        public static bool FileExists(string sPath)
+        {
+            return System.IO.File.Exists(sPath);
+        }
     }
 }
