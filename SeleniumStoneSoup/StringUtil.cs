@@ -22,5 +22,15 @@ namespace SeleniumStoneSoup
 
             return result;
         }
+
+        public static string TakeOffBeginning(string value, string takeOff)
+        {
+            string sReturn = value;
+
+            if (value.Length > 0 && value.StartsWith(takeOff))
+                sReturn = value.Substring(1);
+
+            return sReturn;
+        }
     }
 }

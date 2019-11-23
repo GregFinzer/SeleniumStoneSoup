@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
+﻿using OpenQA.Selenium;
 
 namespace SeleniumStoneSoup.Demo.Framework.Pages
 {
     public class OrderPage : BaseStoneSoupPage
     {
-        public OrderPage(RemoteWebDriver driver) : base(driver)
+        public OrderPage(BaseStoneSoupTest test) : base(test)
         {
         }
 
@@ -39,6 +33,7 @@ namespace SeleniumStoneSoup.Demo.Framework.Pages
             FillInOrderSection();
             FillInBirthdaySection();
             FillInDeliveryInformation();
+            Test.PassedStepScreenShot("Before Submit");
             SubmitOrder.Submit();
         }
 
@@ -50,6 +45,7 @@ namespace SeleniumStoneSoup.Demo.Framework.Pages
             Address.SetText("4 Sentimental Street");
             ZipCode.SetText("90210");
             DriverNotes.SetText("The password for the gated community is 5309");
+            Test.PassedStep("FillInDeliveryInformation");
         }
 
         private void FillInBirthdaySection()
@@ -59,6 +55,7 @@ namespace SeleniumStoneSoup.Demo.Framework.Pages
             FacebookPage.SetText("https://www.facebook.com/brad.gillis.125");
             SexMale.Click();
             Agree.Click();
+            Test.PassedStep("FillInBirthdaySection");
         }
 
         private void FillInOrderSection()
@@ -66,6 +63,7 @@ namespace SeleniumStoneSoup.Demo.Framework.Pages
             MenuItem.SelectDropdownByText("We will Rock you Loaded Potato Cheese Soup");
             Quantity.SetText("2");
             SpicyLevel.SetText("5");
+            Test.PassedStep("FillInOrderSection");
         }
     }
 }

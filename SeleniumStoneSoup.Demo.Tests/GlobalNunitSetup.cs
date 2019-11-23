@@ -14,7 +14,7 @@ namespace SeleniumStoneSoup.Demo.Tests
         [OneTimeSetUp]
         public void GlobalSetup()
         {
-            UiTestContext.Driver = new TestDriverFactory().CreateDriver();
+            UiTestContext.Driver = TestDriverFactory.CreateDriver();
             UiTestContext.Extent = ExtentReportsFactory.CreateHtmlReporter(UiTestContext.Driver, FileUtil.GetCurrentDirectory());
         }
 

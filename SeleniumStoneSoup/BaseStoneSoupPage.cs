@@ -9,12 +9,14 @@ namespace SeleniumStoneSoup
         public abstract string Route { get; }
         public abstract string Title { get; }
 
-        protected BaseStoneSoupPage(RemoteWebDriver driver)
+        protected BaseStoneSoupPage(BaseStoneSoupTest baseStoneSoupTest)
         {
-            Driver = driver;
+            Driver = baseStoneSoupTest.Driver;
+            Test = baseStoneSoupTest;
         }
 
         public RemoteWebDriver Driver { get; set; }
+        public BaseStoneSoupTest Test { get; set; }
 
         public virtual void GoTo()
         {
@@ -26,12 +28,16 @@ namespace SeleniumStoneSoup
         {
             if (!Driver.TitleContains(Title))
                 throw new NoSuchElementException($"HasExpectedTitle failed. Driver.TitleContains does not contain: {Title}");
+
+            Test.PassedStep("HasExpectedTitle: " + Title);
         }
 
         public virtual void IsOnPage()
         {
             if (!Driver.Url.ToLower().Contains(Route.ToLower()))
                 throw new NoSuchElementException($"IsOnPage failed. Driver.Url.Contains(Route) does not contain: {Route}");
+
+            Test.PassedStep("IsOnPage: " + Route);
         }
     }
 }

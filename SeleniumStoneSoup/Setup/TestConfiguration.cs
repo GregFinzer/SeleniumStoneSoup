@@ -9,7 +9,7 @@ namespace SeleniumStoneSoup.Setup
     /// Configuration object
     /// This would usually also contain other test specific config values required to be read from app.config
     /// </summary>
-    public class TestConfiguration
+    public static class TestConfiguration
     {
         public static bool Remote { get; set; }
         public static string Browser { get; set; }

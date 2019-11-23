@@ -1,7 +1,4 @@
-﻿using System.IO;
-using AventStack.ExtentReports;
-using AventStack.ExtentReports.Reporter;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SeleniumStoneSoup.Demo.Framework;
 
 namespace SeleniumStoneSoup.Demo.Tests

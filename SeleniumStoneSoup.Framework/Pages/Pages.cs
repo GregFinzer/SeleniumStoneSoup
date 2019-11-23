@@ -1,18 +1,16 @@
-﻿using OpenQA.Selenium.Remote;
-
-namespace SeleniumStoneSoup.Demo.Framework.Pages
+﻿namespace SeleniumStoneSoup.Demo.Framework.Pages
 {
     public class Pages
     {
-        public RemoteWebDriver Driver { get; set; }
+        public BaseStoneSoupTest Test { get; set; }
 
-        public Pages(RemoteWebDriver driver)
+        public Pages(BaseStoneSoupTest test)
         {
-            Driver = driver;
+            Test = test;
         }
 
-        public LoginPage Login => new LoginPage(Driver);
-        public OrderPage Order => new OrderPage(Driver);
-        public OrderConfirmationPage OrderConfirmation => new OrderConfirmationPage(Driver);
+        public LoginPage Login => new LoginPage(Test);
+        public OrderPage Order => new OrderPage(Test);
+        public OrderConfirmationPage OrderConfirmation => new OrderConfirmationPage(Test);
     }
 }

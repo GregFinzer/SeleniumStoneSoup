@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using AventStack.ExtentReports;
-using MongoDB.Driver;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Support.Extensions;
-using SeleniumStoneSoup.Setup;
 
 namespace SeleniumStoneSoup
 {
@@ -20,14 +12,14 @@ namespace SeleniumStoneSoup
     public abstract class BaseStoneSoupTest
     {
         public RemoteWebDriver Driver => UiTestContext.Driver;
-
+        public ExtentReports Extent => UiTestContext.Extent;
         public ExtentTest ExtentTest { get; set; }
 
 
         [SetUp]
-        public void BaseInitialize()
+        public void TestInitialize()
         {
-            ExtentTest = UiTestContext.Extent.CreateTest(TestContext.CurrentContext.Test.ClassName + "." +
+            ExtentTest = Extent.CreateTest(TestContext.CurrentContext.Test.ClassName + "." +
                                                          TestContext.CurrentContext.Test.MethodName);
         }
 
@@ -46,8 +38,26 @@ namespace SeleniumStoneSoup
             }
             else
             {
-                ExtentTest.Pass("ScreenShot").AddScreenCaptureFromPath(GetScreenShotPath());
+                ExtentTest.Pass("Passing ScreenShot").AddScreenCaptureFromPath(GetScreenShotPath());
             }
+        }
+
+        public void PassedStep(string message)
+        {
+            ExtentTest.Log(Status.Pass, message);
+        }
+
+        public void FailedStep(string message)
+        {
+            ExtentTest.Log(Status.Fail, message);
+        }
+
+        public void PassedStepScreenShot(string message)
+        {
+            string classMethod = $"{TestContext.CurrentContext.Test.ClassName}.{TestContext.CurrentContext.Test.MethodName}";
+            string fileName = $"{classMethod}_{FileUtil.FilterFileName(message)}";
+            TakeScreenShot(fileName);
+            ExtentTest.Log(Status.Pass, message).AddScreenCaptureFromPath(GetScreenShotPath(fileName));
         }
 
         public void DeleteScreenShot(string screenShotName = "")
@@ -67,9 +77,11 @@ namespace SeleniumStoneSoup
         {
             if (String.IsNullOrEmpty(screenShotName))
             {
+                string classMethod = $"{TestContext.CurrentContext.Test.ClassName}.{TestContext.CurrentContext.Test.MethodName}";
+                
                 return Path.Combine(FileUtil.GetCurrentDirectory(),
                     "Screenshots",
-                    $"{TestContext.CurrentContext.Test.ClassName}.{TestContext.CurrentContext.Test.MethodName}.jpg");
+                    $"{classMethod}.jpg");
             }
 
             return Path.Combine(FileUtil.GetCurrentDirectory(),
@@ -77,14 +89,6 @@ namespace SeleniumStoneSoup
                 $"{screenShotName}.jpg");
         }
 
-        //[OneTimeTearDown]
-        //public virtual void FixtureCleanup()
-        //{
-        //    if (Driver != null)
-        //    {
-        //        Driver.Close();
-        //        Driver.Quit();
-        //    }
-        //}
+
     }
 }

@@ -9,7 +9,7 @@ namespace SeleniumStoneSoup.Demo.Framework
         [SetUp]
         public void Initialize()
         {
-            Pages = new Demo.Framework.Pages.Pages(Driver);
+            Pages = new Demo.Framework.Pages.Pages(this);
         }
     }
 }

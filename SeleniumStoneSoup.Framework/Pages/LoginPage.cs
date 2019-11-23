@@ -5,7 +5,7 @@ namespace SeleniumStoneSoup.Demo.Framework.Pages
 {
     public class LoginPage : BaseStoneSoupPage
     {
-        public LoginPage(RemoteWebDriver driver) : base(driver)
+        public LoginPage(BaseStoneSoupTest test) : base(test)
         {
         }
 

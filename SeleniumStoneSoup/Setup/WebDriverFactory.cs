@@ -6,18 +6,14 @@ using OpenQA.Selenium.IE;
 
 namespace SeleniumStoneSoup.Setup
 {
-    public class WebDriverFactory
+    public static class WebDriverFactory
     {
-        //Declare an instance of an IWebDriver to assign a browser driver to.
-        //We use IWebDriver as all browsers use this interface, so all compatible.
-        private IWebDriver _driver;
-
         /// <summary>
-        /// This method will create a local driver, as it takes the LocalDriver configuation object
+        /// This method will create a local driver, as it takes the LocalDriver configuration object
         /// </summary>
         /// <param name="configuration">An instance of the LocalDriverConfiguration object.</param>
-        /// <returns>Driver that mets the configuration</returns>
-        public IWebDriver Create(LocalDriverConfiguration configuration)
+        /// <returns>Driver that meets the configuration</returns>
+        public static IWebDriver Create(LocalDriverConfiguration configuration)
         {
             //A simple switch statement to determine which driver/service to create.
             switch (configuration.Browser)
@@ -27,36 +23,27 @@ namespace SeleniumStoneSoup.Setup
                 case "chrome-headless":
                     var options = new ChromeOptions();
                     options.AddArgument("--headless");
-                    _driver = new ChromeDriver(options);
-                    break;
-
+                    return new ChromeDriver(options);
                 case "chrome":
-                    _driver = new ChromeDriver();
-                    break;
+                    return new ChromeDriver();
                 case "internet explorer":
                 case "ie":
-                    _driver = new InternetExplorerDriver();
+                    return new InternetExplorerDriver();
                     break;
                 case "firefox":
-                    _driver = new FirefoxDriver();
-                    break;
+                    return new FirefoxDriver();
                 case "edge":
-                    _driver = new EdgeDriver();
-                    break;
+                    return new EdgeDriver();
                 //If a string isn't matched, it will default to ChromeDriver
                 default:
-                    _driver = new ChromeDriver();
-                    break;
+                    return new ChromeDriver();
             }
-
-            //Return the driver instance to the calling class.
-            return _driver;
         }
 
         //TODO:  Remote later
 
         ///// <summary>
-        ///// This method will create a remotedriver, as it takes the RemoteDriver configuation object
+        ///// This method will create a remotedriver, as it takes the RemoteDriver configuration object
         ///// </summary>
         ///// <param name="configuration"></param>
         ///// <returns></returns>
