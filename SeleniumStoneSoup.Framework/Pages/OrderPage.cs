@@ -39,6 +39,7 @@ namespace SeleniumStoneSoup.Demo.Framework.Pages
 
         private void FillInDeliveryInformation()
         {
+            //Driver.SetValue(OrderTime, "1230PM");
             OrderTime.SetText("1230PM");
             Phone.SetText("3108675309");
             Email.SetText("bradgillis@bradgillis.com");
