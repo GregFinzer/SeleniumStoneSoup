@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AventStack.ExtentReports;
+using KellermanSoftware.Common;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
@@ -25,7 +26,7 @@ namespace SeleniumStoneSoup
 
         public virtual void GoTo()
         {
-            string url = StringUtil.UrlCombineSafe(TestConfiguration.ApplicationUrl, Route);
+            string url = WebUtil.UrlCombineSafe(TestConfiguration.ApplicationUrl, Route);
             Driver.Navigate().GoToUrl(url);
             HasNoJavaScriptErrors();
         }

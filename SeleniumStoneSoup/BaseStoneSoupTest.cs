@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using AventStack.ExtentReports;
+using KellermanSoftware.Common;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium.Remote;

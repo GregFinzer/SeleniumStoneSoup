@@ -25,6 +25,18 @@ namespace SeleniumStoneSoup
             return driver.FindElement(By.XPath($"//input[@name='{name}' and @value='{value}']"));
         }
 
+        public static void SetTimeField(this IWebDriver driver, IWebElement element, DateTime dateTime)
+        {
+            string time = dateTime.ToString("HH:mm:ss");
+            SetValue(driver, element, time);
+        }
+
+        public static void SetDateField(this IWebDriver driver, IWebElement element, DateTime dateTime)
+        {
+            string isoDateString = dateTime.ToString("yyyy-MM-dd");
+            SetValue(driver, element, isoDateString);
+        }
+
         public static void ScrollIntoView(this IWebDriver driver, IWebElement element)
         {
             Actions actions = new Actions(driver);

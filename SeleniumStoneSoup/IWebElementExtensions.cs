@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using KellermanSoftware.Common;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
@@ -60,7 +61,7 @@ namespace SeleniumStoneSoup
 
         public static string GetAttribute(this IWebElement element, TagAttributes tagAttribute)
         {
-            return element.GetAttribute(EnumHelper.GetEnumDescription(tagAttribute));
+            return element.GetAttribute(ObjectUtil.GetEnumDescription(tagAttribute));
         }
 
         public static string ToDetailedString(this IWebElement element)

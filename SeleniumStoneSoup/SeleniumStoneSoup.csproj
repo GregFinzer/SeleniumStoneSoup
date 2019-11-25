@@ -40,6 +40,10 @@
     <Reference Include="ExtentReports, Version=4.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ExtentReports.4.0.3\lib\ExtentReports.dll</HintPath>
     </Reference>
+    <Reference Include="KellermanSoftware.Common, Version=1.15.0.0, Culture=neutral, PublicKeyToken=dccbd7ce7d6a58c0, processorArchitecture=MSIL">
+      <HintPath>..\packages\KellermanSoftware.Common.1.15.0\lib\net472\KellermanSoftware.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MongoDB.Bson, Version=2.7.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MongoDB.Bson.2.7.2\lib\net45\MongoDB.Bson.dll</HintPath>
     </Reference>
@@ -64,6 +68,7 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
@@ -88,11 +93,8 @@
   <ItemGroup>
     <Compile Include="BaseStoneSoupPage.cs" />
     <Compile Include="BaseStoneSoupTest.cs" />
-    <Compile Include="EnumHelper.cs" />
-    <Compile Include="FileUtil.cs" />
     <Compile Include="IWebDriverExtensions.cs" />
     <Compile Include="IWebElementExtensions.cs" />
-    <Compile Include="ProcessUtil.cs" />
     <Compile Include="Setup\ExtentReportsFactory.cs" />
     <Compile Include="Setup\LocalDriverConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,8 +102,6 @@
     <Compile Include="Setup\TestConfiguration.cs" />
     <Compile Include="Setup\TestDriverFactory.cs" />
     <Compile Include="Setup\WebDriverFactory.cs" />
-    <Compile Include="StringUtil.cs" />
-    <Compile Include="SystemInfo.cs" />
     <Compile Include="TagAttributes.cs" />
     <Compile Include="TagNames.cs" />
     <Compile Include="UITestContext.cs" />

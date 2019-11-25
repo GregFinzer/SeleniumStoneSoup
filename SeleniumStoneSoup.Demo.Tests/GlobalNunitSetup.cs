@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using KellermanSoftware.Common;
 using NUnit.Framework;
 using SeleniumStoneSoup.Setup;
 

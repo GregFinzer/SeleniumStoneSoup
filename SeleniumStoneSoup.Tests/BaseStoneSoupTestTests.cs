@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KellermanSoftware.Common;
 using NUnit.Framework;
 using SeleniumStoneSoup.Demo.Framework;
 using SeleniumStoneSoup.Setup;
@@ -18,7 +19,7 @@ namespace SeleniumStoneSoup.Tests
         public void CanTakeScreenshot()
         {
             //Arrange
-            string url = StringUtil.UrlCombineSafe(TestConfiguration.ApplicationUrl, "Login.html");
+            string url = WebUtil.UrlCombineSafe(TestConfiguration.ApplicationUrl, "Login.html");
             Driver.Navigate().GoToUrl(url);
 
             //Act

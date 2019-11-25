@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 
 namespace SeleniumStoneSoup.Demo.Framework.Pages
 {
@@ -39,8 +40,8 @@ namespace SeleniumStoneSoup.Demo.Framework.Pages
 
         private void FillInDeliveryInformation()
         {
-            //Driver.SetValue(OrderTime, "1230PM");
-            OrderTime.SetText("1230PM");
+            Driver.SetTimeField(OrderTime, DateTime.Today.AddHours(12).AddMinutes(30));
+
             Phone.SetText("3108675309");
             Email.SetText("bradgillis@bradgillis.com");
             Address.SetText("4 Sentimental Street");
@@ -51,7 +52,8 @@ namespace SeleniumStoneSoup.Demo.Framework.Pages
 
         private void FillInBirthdaySection()
         {
-            Birthday.SetText("06/15/1957");
+            Driver.SetDateField(Birthday, new DateTime(1957, 6,15));
+
             Driver.SetValue(FavoriteColor, "#8000ff");
             FacebookPage.SetText("https://www.facebook.com/brad.gillis.125");
             SexMale.Click();
