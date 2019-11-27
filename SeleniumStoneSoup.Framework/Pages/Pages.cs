@@ -12,5 +12,6 @@
         public LoginPage Login => new LoginPage(Test);
         public OrderPage Order => new OrderPage(Test);
         public OrderConfirmationPage OrderConfirmation => new OrderConfirmationPage(Test);
+        public PageWithIFrame PageWithIFrame => new PageWithIFrame(Test);
     }
 }

@@ -24,5 +24,13 @@ namespace SeleniumStoneSoup.Demo.Tests
             Pages.OrderConfirmation.IsOnPage();
         }
 
+        [Test]
+        public void CanLoginInsideAnIFrame()
+        {
+            Pages.PageWithIFrame.GoTo();
+            Pages.PageWithIFrame.IsOnPage();
+            Pages.PageWithIFrame.HasExpectedTitle();
+        }
+
     }
 }

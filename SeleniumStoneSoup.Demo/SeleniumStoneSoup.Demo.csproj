@@ -72,6 +72,7 @@
     <Content Include="JavaScript\script.js" />
     <Content Include="Login.html" />
     <Content Include="Order.html" />
+    <Content Include="PageWithIFrame.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -88,7 +88,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtentTests.cs" />
     <Compile Include="FailingTestExamples.cs" />
     <Compile Include="GlobalNunitSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
