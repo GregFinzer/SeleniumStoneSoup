@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using SeleniumStoneSoup.Demo.Framework;
 
 namespace SeleniumStoneSoup.Demo.Tests
@@ -30,6 +31,16 @@ namespace SeleniumStoneSoup.Demo.Tests
             Pages.PageWithIFrame.GoTo();
             Pages.PageWithIFrame.IsOnPage();
             Pages.PageWithIFrame.HasExpectedTitle();
+            Driver.WaitReadyState();
+            IWebElement frame = Driver.GetIFrame();
+            Driver.SwitchTo().Frame(frame);
+            Driver.WaitReadyState();
+            Pages.Login.LoginValidUser();
+            Driver.WaitReadyState();
+            Driver.FindElementByName("order");
+
+
+
         }
 
     }

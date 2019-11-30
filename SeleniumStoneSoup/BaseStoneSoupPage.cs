@@ -28,6 +28,7 @@ namespace SeleniumStoneSoup
         {
             string url = WebUtil.UrlCombineSafe(TestConfiguration.ApplicationUrl, Route);
             Driver.Navigate().GoToUrl(url);
+            Driver.WaitReadyState();
             HasNoJavaScriptErrors();
         }
 

@@ -197,22 +197,27 @@ namespace SeleniumStoneSoup
         }
 
         public static ReadOnlyCollection<IWebElement> GetElements(
-            this IWebDriver element,
+            this IWebDriver driver,
             By by)
         {
-            return element.FindElements(by);
+            return driver.FindElements(by);
         }
 
         public static ReadOnlyCollection<IWebElement> GetAllInputElements(
-            this IWebDriver element,
+            this IWebDriver driver,
             By by)
         {
-            return element.FindElements(By.TagName("input"));
+            return driver.FindElements(By.TagName("input"));
         }
 
-        public static IWebElement GetForm(IWebDriver element)
+        public static IWebElement GetForm(this IWebDriver driver)
         {
-            return element.FindElements(By.TagName("form")).First();
+            return driver.FindElements(By.TagName("form")).First();
+        }
+
+        public static IWebElement GetIFrame(this IWebDriver driver)
+        {
+            return driver.FindElements(By.TagName("iframe")).First();
         }
     }
 }
